@@ -1,4 +1,11 @@
+'''
+The classic hangman game
+Author: MaliciousFiles (https://github.com/MaliciousFiles)
+Contributor(s): mrmaxguns (https://github.com/mrmaxguns)
+'''
+
 from random import choice
+
 
 def hangman():
     wordfile = open('words/words.txt', 'r')
