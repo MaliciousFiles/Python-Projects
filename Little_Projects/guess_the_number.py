@@ -1,3 +1,9 @@
+'''
+The classic guess the number game
+Author: MaliciousFiles (https://github.com/MaliciousFiles)
+Contributor(s): mrmaxguns (https://github.com/mrmaxguns)
+'''
+
 from random import randint, choice
 
 def num_game(range=50, num_of_tries=5):
