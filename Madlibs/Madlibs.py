@@ -10,8 +10,8 @@ import random
 def get_template():
     file = input('Please enter the file you wish to use as a template (type "s" for the sample template): ')
     if file.lower() == 's':
-        file = 'sample.txt'
-    
+        file = 'my_madlibs/sample.txt'
+
     if path.exists(file):
         return file
     else:
@@ -72,7 +72,7 @@ def grab_info(words_list):
     if len(other) != 0:
         other_words_dict = {}
         for i in range(len(other)):
-            other_words_dict[other[i]] = input('Give me a(n) %s: ' % other[i])
+            other_words_dict[other[i]] = input('Give me a(n) %s: ' % other[i].replace('-', ' '))
 
     return [nounslist, verbslist, adjectiveslist, other_words_dict]
 
