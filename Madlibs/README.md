@@ -6,7 +6,7 @@
 * [Madlib file syntax](#Madlib-file-syntax)
 * [Running the madlib program](#Running-the-madlib-program)
 * [Troubleshooting](#Troubleshooting)
-* [Legal}(#Legal)
+* [Legal](#Legal)
 
 ## What is a Madlib?
 A madlib is a game in which one person has a sheet of paper that contains a story where some of the words have been omitted and replaced with their part of speech. For every ommited word, the person holding the sheet asks another person to think of a word with that part of speech. For example, let's say Sally has a madlib:
