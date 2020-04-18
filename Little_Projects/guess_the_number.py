@@ -4,7 +4,7 @@ Author: MaliciousFiles (https://github.com/MaliciousFiles)
 Contributor(s): mrmaxguns (https://github.com/mrmaxguns)
 '''
 
-from random import randint, choice
+from random import randint
 
 def num_game(range=50, num_of_tries=5):
 
