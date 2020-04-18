@@ -8,7 +8,7 @@ def num_game(range=50, num_of_tries=5):
     while tries > 0:
         print('')
 
-        guess = input('Guess a number from 1 to %s. You have %s tries left.\n' % (range, tries))
+        guess = input('Guess a number from 1 to %s. You have %s trie(s) left.\n' % (range, tries))
 
         try:
             guess = int(guess)
