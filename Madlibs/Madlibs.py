@@ -8,11 +8,14 @@ from os import path
 import random
 
 def get_template():
-    file = input('Please enter the file you wish to use as a template: ')
+    file = input('Please enter the file you wish to use as a template (type "s" for the sample template): ')
+    if file.lower() == 's':
+        file = 'sample.txt'
+    
     if path.exists(file):
         return file
     else:
-        raise FileNotFoundError('the file %s was not found' % file)
+        raise FileNotFoundError('the file "%s" was not found' % file)
 
 def get_words_from_template(file_path):
     file = open(file_path, 'r')
@@ -109,7 +112,17 @@ def return_madlib(final_words_list, file):
 
     return ' '.join(final_list)
 
-template = get_template()
-words = get_words_from_template(template)
-info = grab_info(words)
-print(return_madlib(info, template))
+def do_the_mad_lib():
+    template = get_template()
+    info = grab_info(get_words_from_template(template))
+    print(return_madlib(info, template))
+
+
+print('Welcome to madlib!')
+while True:
+    do_the_mad_lib()
+
+    play_again = input('\nDo you want to play again? (yes/no) ').lower()
+    if play_again.startswith('n'):
+        print('Thanks for playing!')
+        break
