@@ -1,7 +1,8 @@
 """
 This program generates passages that are generated in mad-lib format
-Author: Malcolm
+Author: @MaliciousFiles
 Contributors: @mrmaxguns
+Copyright (c) 2020 MaliciousFiles All Rights Reserved.
 """
 
 from os import path
