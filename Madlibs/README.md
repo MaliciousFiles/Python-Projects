@@ -152,6 +152,6 @@ On linux, it might look something like:
 On windows it starts with 'C:'.
 
 ## Legal
-**License**: None at the moment
-**Creator**: MaliciousFiles (github.com/MaliciousFiles)
-**Contributor(s)**: Maxim R (github.com/mrmaxguns)
+* **License**: None at the moment
+* **Creator**: MaliciousFiles (github.com/MaliciousFiles)
+* **Contributor(s)**: Maxim R (github.com/mrmaxguns)
