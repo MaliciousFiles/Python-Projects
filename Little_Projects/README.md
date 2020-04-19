@@ -11,11 +11,13 @@ Here are some fun little games that you can play. Don't even worry about all of 
 ```
 /Little_Projects
 +-- __pycache__               <-- Developers, ignore this directory
-    |-- guess_the_number.cpython-36.pyc
-    |-- hangman.cpython-36.pyc
+|   |-- guess_the_number.cpython-36.pyc
+|   |-- hangman.cpython-36.pyc
 +-- docs
+|   |-- hangman.md
+|   |-- guess_the_number.md
 +-- words
-    |-- words.txt
+|   |-- words.txt
 +-- words
 +-- guess_the_number.py
 +-- hangman.py
