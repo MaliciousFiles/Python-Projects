@@ -93,7 +93,10 @@ def grab_info(words_list):
     if len(other) != 0:
         other_words_dict = {}
         for i in range(len(other)):
-            other_words_dict[other[i]] = input('Give me a(n) %s: ' % other[i].replace('-', ' '))
+            if other [i] in other_words_dict:
+                other_words_dict[other[i]].append(input('Give me a(n) %s: ' % other[i].replace('-', ' ')))
+            else:
+                other_words_dict[other[i]] = [input('Give me a(n) %s: ' % other[i].replace('-', ' '))]
 
     # Return the lists in a list
     return [nounslist, verbslist, adjectiveslist, other_words_dict]
@@ -132,16 +135,18 @@ def return_madlib(final_words_list, file):
                 final_list.append(adjective)
                 adjectives.remove(adjective)
             else:
-                word = other[i[1:-1]]
+                # word = random.choice(other[i[1:-1]][0])
+                word = random.choice(other[i[1:-1]])
                 final_list.append(word)
                 # other.pop(word)
-                other = {key:val for key, val in other.items() if val != word}
+                # other = {key:val for key, val in other.items() if val != word}
+                other[i[1:-1]].pop(other[i[1:-1]].index(word))
         else:
             final_list.append(i)
 
     # Return the string madlib by joining the final_list
     return ' '.join(final_list)
-    
+
 
 # Connect all of the functions together
 def do_the_mad_lib():

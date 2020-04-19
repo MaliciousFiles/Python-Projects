@@ -1,0 +1,4 @@
+Mr. [male-name] loved to bake [plural-noun] .
+His son, [male-name] loved to eat [plural-noun] .
+His [adjective] daughter [female-name] wrecked the [noun] .
+He was very [adjective] about her being such an [adjective] [noun] .
