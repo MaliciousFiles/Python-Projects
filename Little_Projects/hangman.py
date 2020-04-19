@@ -7,7 +7,7 @@ Contributor(s): mrmaxguns (https://github.com/mrmaxguns)
 from random import choice
 
 
-def hangman():
+def hangman_game():
     # Open the file with the words of the english language
     wordfile = open('words/words.txt', 'r')
 
@@ -22,6 +22,7 @@ def hangman():
 
     # Choose a random word and set up variables
     word = choice(wordlist)
+    print(word)
     guess_instances={}
     wordguess=''
     guesspool=[]
@@ -132,10 +133,11 @@ def hangman():
                 elif hung_parts==6:
                     print('\n\n   ______\n   |    |\n   |    |\n   |    o\n   |   /|\\ \n   |   / \\ \n   |\n\nYou lose! The word was %s.\n'%word)
         if '_' not in wordguess:
-            print('%s\n\nYou win!'%hangman)
+            print('You win!')
+            break
 
-        guesspool+=guess
+        guesspool += guess
 
 
 if __name__ == "__main__":
-    hangman()
+    hangman_game()
