@@ -8,20 +8,29 @@ from random import choice
 
 
 def hangman():
+    # Open the file with the words of the english language
     wordfile = open('words/words.txt', 'r')
+
+    # Store the file as a list
     lines = wordfile.readlines()
+
+    # Close the file
     wordfile.close()
 
+    # Take the file and remove all newlines (\n)
     wordlist = [i.rstrip() for i in lines]
 
+    # Choose a random word and set up variables
     word = choice(wordlist)
     guess_instances={}
     wordguess=''
     guesspool=[]
 
+    # Create the _ for each letter
     for x in range(len(word)):
-        wordguess+='_ '
+        wordguess += '_ '
 
+    # Set up more variables including the "hanging pedestal"
     hung_parts=0
     new_part=''
     hungman='''
@@ -34,6 +43,8 @@ def hangman():
    |
    |
 '''
+
+    # Run while the person isn't complete
     while hung_parts < 6:
         print(hungman)
         print(wordguess)
@@ -106,6 +117,7 @@ def hangman():
 
                 print('You got %s!'%new_part)
 
+                # Draw the hung parts
                 if hung_parts==1:
                     hungman='\n\n   ______\n   |    |\n   |    |\n   |    o\n   |    \n   |    \n   |\n'
                 elif hung_parts==2:
