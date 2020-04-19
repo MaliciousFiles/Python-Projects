@@ -1,6 +1,12 @@
 # Little Projects (Aka. Games)
 Here are some fun little games that you can play. Don't even worry about all of the different python files. Just run `run.py` and choose a game to play! Games supported include hangman and guess the number. Info on all games can also be found in the docs folder.
 
+## Table of contents
+* [Current file structure](#Current-file-structure)
+* [Accessing the projects](#Accessing-the-projects)
+* [Supported games](#Supported-games)
+
+
 ## Current file structure
 ```
 /Little_Projects
