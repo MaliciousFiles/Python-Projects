@@ -1,18 +1,25 @@
 # Project Title
 
-One Paragraph of project description goes here
+Welcome to the Little Projects repository where you can find many small pieces of code including games and other fun programs. This is a python project repository and contains many different small projects that do not relate to each other and that are too small to be made into a repository (yet).
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To contribute to this repository you will have to fork the repository and then clone it to your local machine. You will then submit a pull request in order for your changes to go live.
+
+1. Fork the repository. [Learn how to fork a repo.](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
+2. Clone the forked repository to your local machine. To do this, go to the home page of the repository and then click on the green `Clone or download` button. Copy the Https... . Then go to your command line, navigate to the directory where you want to clone it and use git to clone it by typing: `git clone ` + the copied url:
+  ```
+  $ git clone https://github.com/YOUR_USERNAME/Python-Projects.git
+  ```
+3. Finally, set up the original upstream repository. To do this, move into the Python-Projects directory. Then use git to set up the upstream repository as so:
+  ```
+  $ git remote add upstream https://github.com/MaliciousFiles/Python-Projects.git
+  ```
+4. You can then create a branch or make any other commits and changes. Once you have tested that your changes were successful, open a pull request and write a description of your changes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+* Python 3.6 or greater
 
 ### Installing
 
