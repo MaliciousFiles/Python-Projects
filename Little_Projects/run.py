@@ -8,15 +8,19 @@ Currently supports:
 * guess the number
 '''
 
+# Imports
 from hangman import hangman
 from guess_the_number import num_game
 
-title = 'Fun games, by MaliciousFiles'
+# The title
+title = 'Fun and classic games'
 
+# Draw and "beautify" the title
 print('-' * len(title))
 print(title)
 print('-' * len(title))
 
+# Help menu
 help = """
 
 Help!
@@ -34,6 +38,7 @@ Games:
 
 """
 
+# Info menu
 info = """
 
 Info
@@ -49,11 +54,15 @@ Just fork the repository (github.com/MaliciousFiles/Python-Projects).
 
 Playing = True
 
+# Main loop
 while Playing:
+    # Print basic information
     print('\nType "help" to get help, "info" for info, "q" for quit or the name of the game you want to play!\n')
 
+    # Get user input
     command = input('Your wish is my command: ').lower()
 
+    # Run different commands depending on what the user said
     if command.startswith('q'):
         print('\nThanks for playing! See you next time.')
         quit()
