@@ -95,8 +95,26 @@ while Playing:
                 print('Level is hard\n')
                 params = [100, 5]
             else:
-                a = int(input('What is the maximum number of guessing? '))
-                b = int(input('What is the number of tries? '))
+                while True:
+                    try:
+                        a = int(input('What is the maximum number of guessing? '))
+                    except ValueError:
+                        print('Invalid number!')
+
+                    if a > 1:
+
+                        try:
+                            b = int(input('What is the number of tries? '))
+                        except ValueError:
+                            print('Invalid number!')
+
+                        if b > 1:
+                            break
+                        else:
+                            print("Uh oh, that's an awfully small number! Try again")
+                    else:
+                        print("Uh oh, that's an awfully small number! Try again")
+
                 print('You chose the range of 1 - %s and a maximum of %s tries\n' % (a, b))
                 params = [a, b]
 
