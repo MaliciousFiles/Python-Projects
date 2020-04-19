@@ -1,6 +1,11 @@
 # Guess the number
 The classic number guessing game that you can now play with python!
 
+## Table of contents
+* [What is guess the number?](#What-is-guess-the-number)
+* [How to play guess the number with python](#How-to-play-guess-the-number-with-python)
+* [Errors](#Errors)
+
 ## What is guess the number?
 Guess the number is a very simple game where one person guesses a number (in a certain range i.e. 1-50). The other person then has a limited number of tries to guess it. If they guess the number incorrectly, all the other person says is if the real number is greater than (higher) or less than (lower) than the guessed number. You win by guessing the number before your tries run out.
 
@@ -15,7 +20,7 @@ Lilia: 27
 Bob: Correct!
 ```
 
-## How to play guess the number with python?
+## How to play guess the number with python
 1. Run the file run.py. You can do so with the python idle, or through the command line (make sure you are in the Little_Projects directory.):
   ```
   $ python run.py
