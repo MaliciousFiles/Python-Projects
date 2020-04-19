@@ -103,18 +103,23 @@ while Playing:
                         a = int(input('What is the maximum number of guessing? '))
                     except ValueError:
                         print('Invalid number!')
+                        continue
 
                     if a > 1:
+                        break
 
-                        try:
-                            b = int(input('What is the number of tries? '))
-                        except ValueError:
-                            print('Invalid number!')
+                    else:
+                        print("Uh oh, that's an awfully small number! Try again")
 
-                        if b > 1:
-                            break
-                        else:
-                            print("Uh oh, that's an awfully small number! Try again")
+                while True:
+                    try:
+                        b = int(input('What is the number of tries? '))
+                    except ValueError:
+                        print('Invalid number!')
+                        continue
+
+                    if b > 1:
+                        break
                     else:
                         print("Uh oh, that's an awfully small number! Try again")
 
