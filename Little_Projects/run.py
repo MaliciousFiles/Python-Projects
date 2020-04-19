@@ -74,6 +74,7 @@ while Playing:
         print('Hangman!\n')
 
         while True:
+            # Run hangman until user no longer wants to play
             hangman()
             again = input('Do you want to play again? y/n ')
             if again.lower().startswith('n'):
@@ -82,6 +83,7 @@ while Playing:
     elif command.startswith('g'):
         print('Guess the number!')
 
+        # Run guess the number until the user no longer wants to play
         while True:
             level = input('Choose your level (easy/medium/hard/custom): ').lower()
 
@@ -95,6 +97,7 @@ while Playing:
                 print('Level is hard\n')
                 params = [100, 5]
             else:
+                # Check to make sure the user chooses only natural numbers above 1
                 while True:
                     try:
                         a = int(input('What is the maximum number of guessing? '))
@@ -118,11 +121,13 @@ while Playing:
                 print('You chose the range of 1 - %s and a maximum of %s tries\n' % (a, b))
                 params = [a, b]
 
+            # Run the actual game
             num_game(params[0], params[1])
             again = input('Do you want to play again? y/n ')
             if again.lower().startswith('n'):
                 print('\nThanks for playing guess the number!')
                 break
     else:
+        # Invalid command
         print('Invalid Command')
         print('Please type help for a full list of commands')
