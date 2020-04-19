@@ -23,6 +23,8 @@ Here are some fun little games that you can play. Don't even worry about all of 
 +-- hangman.py
 +-- README.md
 +-- run.py
++-- guess_the_number.pyc   <-- Developers, ignore this file
++-- hangman.pyc  <-- Developers, ignore this file
 ```
 
 The `__pycache__` is used by python and can be safely ignored. The `docs` directory contains a documentation on the games. The `words` directory contains files needed for `hangman.py`. There is also `guess_the_number.py`, `hangman.py` and `run.py`. The only important python file for users is `run.py` where you can access all of the games.
