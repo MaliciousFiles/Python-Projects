@@ -83,7 +83,24 @@ while Playing:
         print('Guess the number!')
 
         while True:
-            num_game()
+            level = input('Choose your level (easy/medium/hard/custom): ').lower()
+
+            if level.startswith('e'):
+                print('Level is easy\n')
+                params = [40, 10]
+            elif level.startswith('m'):
+                print('Level is medium\n')
+                params = [50, 5]
+            elif level.startswith('h'):
+                print('Level is hard\n')
+                params = [100, 5]
+            else:
+                a = int(input('What is the maximum number of guessing? '))
+                b = int(input('What is the number of tries? '))
+                print('You chose the range of 1 - %s and a maximum of %s tries\n' % (a, b))
+                params = [a, b]
+
+            num_game(params[0], params[1])
             again = input('Do you want to play again? y/n ')
             if again.lower().startswith('n'):
                 print('\nThanks for playing guess the number!')
