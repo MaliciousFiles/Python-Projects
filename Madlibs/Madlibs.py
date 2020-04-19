@@ -98,7 +98,6 @@ def grab_info(words_list):
             else:
                 other_words_dict[other[i]] = [input('Give me a(n) %s: ' % other[i].replace('-', ' '))]
 
-    print(other_words_dict)
     # Return the lists in a list
     return [nounslist, verbslist, adjectiveslist, other_words_dict]
 
@@ -138,11 +137,9 @@ def return_madlib(final_words_list, file):
             else:
                 # word = random.choice(other[i[1:-1]][0])
                 word = random.choice(other[i[1:-1]])
-                print(word)
                 final_list.append(word)
                 # other.pop(word)
                 # other = {key:val for key, val in other.items() if val != word}
-                print(i[1:-1])
                 other[i[1:-1]].pop(other[i[1:-1]].index(word))
         else:
             final_list.append(i)
