@@ -1,6 +1,11 @@
 # Hangman
 Hangman is the classic game where one person guesses a word and draws a blank for each letter in the word. The other players guess letters of that word. If the guessed letter exists in the word, the player who guessed the word fills in the blanks in the word where the letter is. If the letter is wrong, the player draws a body part on the "hanging pedestal". If by the time a full person is not drawn, the players haven't guessed the word, they loose.
 
+## Table of contents
+* [Hangman example](#Hangman-example)
+* [How to play hangman with python](#How-to-play-hangman-with-python)
+* [Errors](#Errors)
+
 ## Hangman example
 Bob, Jane and John are playing hangman. Bob is the person who thinks of a word. He also has a sheet of paper which all the players can see. In his head, bob thought of the word 'horse'.
 
