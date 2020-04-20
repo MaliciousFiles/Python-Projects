@@ -22,7 +22,6 @@ def hangman_game():
 
     # Choose a random word and set up variables
     word = choice(wordlist)
-    print(word)
     guess_instances={}
     wordguess=''
     guesspool=[]
