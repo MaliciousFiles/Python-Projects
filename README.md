@@ -1,4 +1,4 @@
-# Project Title
+# Little Python Projects
 
 Welcome to the Little Projects repository where you can find many small pieces of code including games and other fun programs. This is a python project repository and contains many different small projects that do not relate to each other and that are too small to be made into a repository (yet).
 
