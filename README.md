@@ -42,27 +42,22 @@ $ cd Python-Projects
 Now let us set up the virtual environment. Here we will use virtualenv. You can install it by typing the following command: `sudo apt-get install python3-venv`. Now let us finish setting up the virtual environment. We will call it 'venv':
 
 ```
-$ virtualenv venv
+$ python3 -m venv venv
 ```
 
 There is now a `venv` directory in `Python-Projects`. This is the folder for our virtual environment. Finally, let's install all of the needed dependencies in order to work on this repository:
 
 ```
 $ source venv/bin/activate
-$ cd venv
 $ pip install -r requirements.txt
 ```
 Now, you are ready to develop!
 
-### An setup example
-
-
-End with an example of getting some data out of the system or using it for a little demo
-
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Automated tests are currently not supported, but are soon to come.
 
+<!--
 ### Break down into end to end tests
 
 Explain what these tests test and why
@@ -79,19 +74,15 @@ Explain what these tests test and why
 Give an example
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+-->
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Python 3.6](https://devdocs.io/python~3.6/) - The programming language
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](#) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -99,16 +90,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Malcolm R.** - *Initial work* - [MaliciousFiles](https://github.com/MaliciousFiles)
+* **Maxim R.** - *Code updates and documentation* - [mrmaxguns](https://github.com/mrmaxguns)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
