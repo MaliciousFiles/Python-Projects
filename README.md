@@ -15,7 +15,7 @@ To contribute to this repository you will have to fork the repository and then c
   ```
   $ git remote add upstream https://github.com/MaliciousFiles/Python-Projects.git
   ```
-4. Now look at [Installing](#Installing) below. Skip the `git clone...` step and install the dependencies. You can then create a new branch. Once you think you are ready, notify us and send a pull request. We will gladly accept your offer and merge it to master after inspection. **Please check CONTRIBUTING.md for more info on contributing**
+4. Now head over to [Installing](#Installing) below. Skip to step 3. You can then create a new branch. Once you think you are ready, notify us and send a pull request. We will gladly accept your offer and merge it to master after inspection. **Please check CONTRIBUTING.md for more info on contributing**
 
 ### Prerequisites
 
@@ -25,27 +25,23 @@ To contribute to this repository you will have to fork the repository and then c
 
 If you are a developer who wants to contribute, please follow the instructions below to set up the virtual environment needed for developing further.
 
-First, make sure you have python 3.6 or greater installed as well as git.
+1. Make sure you have python 3.6 or greater installed as well as git.
 
-Second, move to the directory in which you want to edit the file (using `cd`) and then clone the git repository:
+2. Clone the repository to your local machine see: [Getting Started](#Getting-Started)
 
-```
-$ git clone https://github.com/MaliciousFiles/Python-Projects.git
-```
-
-Third, let us set up the virtual environment. Start out by moving into the Python-Projects directory:
+3. Let us set up the virtual environment. Start out by moving into the Python-Projects directory:
 
 ```
 $ cd Python-Projects
 ```
 
-Now let us set up the virtual environment. Here we will use virtualenv. You can install it by typing the following command: `sudo apt-get install python3-venv`. Now let us finish setting up the virtual environment. We will call it 'venv':
+4. Now let us set up the virtual environment using virtualenv. You can install it by typing the following command: `sudo apt-get install python3-venv`. Now let us finish setting up the virtual environment. We will call it 'venv':
 
 ```
 $ python3 -m venv venv
 ```
 
-There is now a `venv` directory in `Python-Projects`. This is the folder for our virtual environment. Finally, let's install all of the needed dependencies in order to work on this repository:
+5. There is now a `venv` directory in `Python-Projects`. This is the folder for our virtual environment. Finally, let's install all of the needed dependencies in order to work on this repository:
 
 ```
 $ source venv/bin/activate
