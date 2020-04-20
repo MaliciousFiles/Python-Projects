@@ -4,7 +4,7 @@ Welcome to the Little Projects repository where you can find many small pieces o
 
 ## Getting Started
 
-To contribute to this repository you will have to fork the repository and then clone it to your local machine. You will then submit a pull request in order for your changes to go live.
+To contribute to this repository you will have to fork the repository and then clone it to your local machine. You will then submit a pull request in order for your changes to go live. **You need git and python 3.6 or greater installed to proceed**
 
 1. Fork the repository. [Learn how to fork a repo.](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 2. Clone the forked repository to your local machine. To do this, go to the home page of the repository and then click on the green `Clone or download` button. Copy the Https... . Then go to your command line, navigate to the directory where you want to clone it and use git to clone it by typing: `git clone ` + the copied url:
@@ -23,19 +23,39 @@ To contribute to this repository you will have to fork the repository and then c
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+If you are a developer who wants to contribute, please follow the instructions below to set up the virtual environment needed for developing further.
 
-Say what the step will be
+First, make sure you have python 3.6 or greater installed as well as git.
 
-```
-Give the example
-```
-
-And repeat
+Second, move to the directory in which you want to edit the file (using `cd`) and then clone the git repository:
 
 ```
-until finished
+$ git clone https://github.com/MaliciousFiles/Python-Projects.git
 ```
+
+Third, let us set up the virtual environment. Start out by moving into the Python-Projects directory:
+
+```
+$ cd Python-Projects
+```
+
+Now let us set up the virtual environment. Here we will use virtualenv. You can install it by typing the following command: `sudo apt-get install python3-venv`. Now let us finish setting up the virtual environment. We will call it 'venv':
+
+```
+$ virtualenv venv
+```
+
+There is now a `venv` directory in `Python-Projects`. This is the folder for our virtual environment. Finally, let's install all of the needed dependencies in order to work on this repository:
+
+```
+$ source venv/bin/activate
+$ cd venv
+$ pip install -r requirements.txt
+```
+Now, you are ready to develop!
+
+### An setup example
+
 
 End with an example of getting some data out of the system or using it for a little demo
 
