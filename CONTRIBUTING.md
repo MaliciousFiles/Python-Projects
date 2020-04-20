@@ -6,10 +6,10 @@ email, or any other method with the owners of this repository before making a ch
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
 ## Pull Request Process
-**After reading this, head over to README.md to set up the dependencies and everything else needed to contribute**
+**After reading this, head over to [README.md](README.md) to set up the dependencies and everything else needed to contribute**
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a
-   build.
+   build. See: [README.md](README.md)
 2. Update the README.md with details of changes to the interface, this includes new environment
    variables, exposed ports, useful file locations and container parameters.
 3. Increase the version numbers in any examples files and the README.md to the new version that this
