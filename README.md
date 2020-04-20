@@ -15,7 +15,7 @@ To contribute to this repository you will have to fork the repository and then c
   ```
   $ git remote add upstream https://github.com/MaliciousFiles/Python-Projects.git
   ```
-4. You can then create a branch or make any other commits and changes. Once you have tested that your changes were successful, open a pull request and write a description of your changes.
+4. Now look at [Installing](#Installing) below. Skip the `git clone...` step and install the dependencies. You can then create a new branch. Once you think you are ready, notify us and send a pull request. We will gladly accept your offer and merge it to master after inspection. **Please check CONTRIBUTING.md for more info on contributing**
 
 ### Prerequisites
 
@@ -82,11 +82,11 @@ Give an example
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](#) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
