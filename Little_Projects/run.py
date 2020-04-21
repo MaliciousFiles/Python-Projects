@@ -9,7 +9,7 @@ Currently supports:
 '''
 
 # Imports
-from hangman import hangman
+from hangman import hangman_game
 from guess_the_number import num_game
 
 # The title
@@ -75,7 +75,7 @@ while Playing:
 
         while True:
             # Run hangman until user no longer wants to play
-            hangman()
+            hangman_game()
             again = input('Do you want to play again? y/n ')
             if again.lower().startswith('n'):
                 print('\nThanks for playing hangman!')
