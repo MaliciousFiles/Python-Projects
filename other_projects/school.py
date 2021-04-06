@@ -1,4 +1,7 @@
 import subprocess
+import sys
+
+PYTHON_VERSION = sys.version.split(' ')[0][:3]
 
 try:
     import pip
@@ -11,7 +14,7 @@ except ModuleNotFoundError:
 try:
     from playsound import playsound
 except ModuleNotFoundError:
-    subprocess.call("pip3 install playsound", shell=True)
+    subprocess.call("pip{PYTHON_VERSION} install --user playsound", shell=True)
     from playsound import playsound
 
 try:
@@ -19,7 +22,7 @@ try:
     from selenium.webdriver.common.keys import Keys
     import selenium.common.exceptions as exceptions
 except ModuleNotFoundError:
-    subprocess.call("pip3 install selenium", shell=True)
+    subprocess.call("pip{PYTHON_VERSION} install --user selenium", shell=True)
     from selenium import webdriver
     from selenium.webdriver.common.keys import Keys
     import selenium.common.exceptions as exceptions
@@ -27,19 +30,19 @@ except ModuleNotFoundError:
 try:
     import sounddevice as sd
 except ModuleNotFoundError:
-    subprocess.call("pip3 install sounddevice", shell=True)
+    subprocess.call("pip{PYTHON_VERSION} install --user sounddevice", shell=True)
     import sounddevice as sd
 
 try:
     import requests
 except ModuleNotFoundError:
-    subprocess.call("pip3 install requests", shell=True)
+    subprocess.call("pip{PYTHON_VERSION} install --user requests", shell=True)
     import requests
 
 try:
     from mkdir import mkdir
 except ModuleNotFoundError:
-    subprocess.call("pip3 install mkdir", shell=True)
+    subprocess.call("pip{PYTHON_VERSION} install --user mkdir", shell=True)
     from mkdir import mkdir
 
 try:
@@ -47,7 +50,7 @@ try:
     from colorama import Style
     import colorama
 except ModuleNotFoundError:
-    subprocess.call("pip3 install colorama", shell=True)
+    subprocess.call("pip{PYTHON_VERSION} install --user colorama", shell=True)
     from colorama import Back
     from colorama import Style
     import colorama
@@ -55,7 +58,7 @@ except ModuleNotFoundError:
 try:
     from win_toaster import create_toast
 except ModuleNotFoundError:
-    subprocess.call("pip3 install win_toaster", shell=True)
+    subprocess.call("pip{PYTHON_VERSION} install --user win_toaster", shell=True)
     from win_toaster import create_toast
 
 from time import sleep
@@ -76,13 +79,6 @@ OPERATING_SYSTEM = platform.system()
 
 if OPERATING_SYSTEM != WINDOWS and OPERATING_SYSTEM != MACOS:
     raise OSError(f"Unfortunately, this program does not support your operating system({OPERATING_SYSTEM}) yet.")
-
-if OPERATING_SYSTEM == MACOS:
-    try:
-        from playsound import playsound
-    except ModuleNotFoundError:
-        subprocess.call("pip3 install playsound", shell=True)
-        from playsound import playsound
 # --------------------------------------------------
 
 CLEAR = "cls" if OPERATING_SYSTEM == WINDOWS else "clear" if OPERATING_SYSTEM == MACOS else ""
@@ -129,13 +125,15 @@ def changeLineByText(oldText, newText, stopAfter=-1):
                 
             f.write(line)
 
-courseNames = [['Spanish', 'Geometry', 'Wind Ensemble', 'US History'], ['Physical Education', 'Science', 'English Language Arts', 'Jazz Band']]
+courseNames = [['Spanish', 'Geometry', 'Wind Ensemble', 'US History'], ['Advanced Coding', 'Science', 'English Language Arts', 'Jazz Band']]
 tuClub = 'D&D'
 thClub = 'D&D'
 
 subprocess.call(CLEAR, shell=True)
 
-if len(courseNames[0]) != 4 or len(courseNames[1]) != 4:
+if len(courseNames) == 0 or len(courseNames[0]) == 0 or len(courseNames[1]) == 0:
+    courseNames = [[], []]
+    
     for x in range(1, 9):
         if x <= 4:
             courseNames[0] += [input(f"What the name for your A{x} in BLEND? ")]
@@ -164,11 +162,11 @@ def installChromedriver():
         chromeversion = subprocess.check_output(r'wmic datafile where name="C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" get Version /value', shell=True).decode()
     elif OPERATING_SYSTEM == MACOS:
         chromeversion = subprocess.check_output("osascript -e 'get version of application \"Google Chrome\"'", shell=True).decode().replace("\n", "")
-
+    
     url = "https://chromedriver.storage.googleapis.com/" + requests.get("https://chromedriver.storage.googleapis.com/LATEST_RELEASE_" + ".".join(chromeversion.replace("\r", "").replace("\n", "").split("=")[-1].split(".")[0:3])).text + ("/chromedriver_win32.zip" if OPERATING_SYSTEM == WINDOWS else "/chromedriver_mac64.zip" if OPERATING_SYSTEM == MACOS else "") 
 
     subprocess.call("curl %s -o %s"%(url, CHROMEDRIVER_PATH + ".zip"), shell=True)
-    zipfile.ZipFile(CHROMEDRIVER_PATH + ".zip").extractall(os.path.abspath('bin'))
+    zipfile.ZipFile(CHROMEDRIVER_PATH + ".zip").extractall(os.path.dirname(CHROMEDRIVER_PATH))
 
     subprocess.call(("del " if OPERATING_SYSTEM == WINDOWS else "rm " if OPERATING_SYSTEM == MACOS else "") + CHROMEDRIVER_PATH + ".zip", shell=True)
     if OPERATING_SYSTEM == MACOS:
@@ -186,13 +184,14 @@ while True:
     try:
         browser = webdriver.Chrome(executable_path = CHROMEDRIVER_PATH, options=options)
         break
-    except OSError:
+    except (OSError, exceptions.SessionNotCreatedException):
         installChromedriver()
 
 browser.get("https://sites.google.com/a/kealingmiddleschool.org/kealing-middle-school/home")
 
 mDay = str(time.localtime().tm_mday)
-dateID = 'day-%s%s%s'%(time.localtime().tm_year, time.localtime().tm_mon, mDay if len(mDay) == 2 else '0' + mDay)
+month = str(time.localtime().tm_mon)
+dateID = 'day-%s%s%s'%(time.localtime().tm_year, ("0" + month) if len(month) == 1 else month, mDay if len(mDay) == 2 else '0' + mDay)
 
 attCount = 0
 while True:
@@ -238,7 +237,7 @@ if aDay == None:
 
 zoomLinks = []
 blendLinks = []
-times = ["745", "920", "1055", "1300", "1430"]
+times = ["745", "920", "1055", "1300", "1430"] # These are Kealing's times...
 
 courses = courseNames[not aDay] + [tuClub if time.localtime().tm_wday == 1 else thClub if time.localtime().tm_wday == 3 else "Advisory"]
 
@@ -274,7 +273,7 @@ while True:
 
     if not credentialsSaved:
         usr = input ("AISD username: " )
-        paswd = input("AISD password: ")
+        passwd = input("AISD password: ")
         
         if input("Save credentials?(y[es]/n[o]) ").lower() == 'y':
             changeLineByText("usr = ", f"    usr = '{usr}'", 1)
@@ -305,7 +304,7 @@ while True:
             update = input("Update saved credentials?(y[es]/n[o]) ")
             if (update == 'y'):
                 changeLineByText("usr = ", f"    usr = ''", 1)
-                changeLineByText("passwd = ", f"    paswd = ''", 1)
+                changeLineByText("passwd = ", f"    passwd = ''", 1)
                 changeLineByText("credentialsSaved = ", "credentialsSaved = False", 1)
                 credentialsSaved = False
         browser.find_element_by_id("authn-startover-button").click()
@@ -358,19 +357,20 @@ for courseIndex in range(len(courses)):
                     browser.find_element_by_link_text(course).click
                     found=True
                 except exceptions.NoSuchElementException:
-                    newCourse = input(f"Could not find course '{course}'. Would you like to re-enter it?(y[es]/n[o]/r[etry])").lower()
-                    if tryCount >= 15 and coursesSaved and  newCourse == 'y':
-                        newCourse = input("What is the new course name?\n")
-                        courses[courseIndex] = newCourse
-                        course = newCourse
-                        courseNames[dayIndex][courseIndex] = newCourse
-                        changeLineByText("courseNames = ", f"courseNames = {courseNames}", 1)
+                    if tryCount >= 5:
+                        newCourse = input(f"Could not find course '{course}'. Would you like to re-enter it?(y[es]/n[o]/r[etry])").lower()
+                        if coursesSaved and newCourse == 'y':
+                            newCourse = input("What is the new course name?\n")
+                            courses[courseIndex] = newCourse
+                            course = newCourse
+                            courseNames[dayIndex][courseIndex] = newCourse
+                            changeLineByText("courseNames = ", f"courseNames = {courseNames}", 1)
 
-                    if newCourse == 'y' or newCourse == 'r':
-                        tryCount = 0
-                        continue
+                        if newCourse == 'y' or newCourse == 'r':
+                            tryCount = 0
+                            continue
 
-            if tryCount >= 15:
+            if tryCount >= 5:
                 break
         except exceptions.NoSuchElementException:
              browser.find_element_by_id("global_nav_courses_link").click()
@@ -384,13 +384,19 @@ for courseIndex in range(len(courses)):
     
     try:
         sleep(0.1)
-        zooms = []
+        zooms = browser.find_elements_by_partial_link_text("Zoom") + browser.find_elements_by_partial_link_text("zoom")
         url=''
         
         for a in browser.find_elements_by_tag_name("a"):
-            if "zoom" in a.get_attribute("href").lower():
-                zooms.append(a)
+            try:
+                if "zoom" in a.get_attribute("href").lower():
+                    zooms.append(a)
+            except AttributeError:
+                pass
+
         for link in zooms:
+            if "discussion_topics" in link.get_attribute("href"):
+                continue
             if "aisdblend" in link.get_attribute("href"):
                 while True:
                     try:
@@ -406,7 +412,7 @@ for courseIndex in range(len(courses)):
                     urls = []
                     try:
                         browser.find_element_by_partial_link_text("zoom")
-                        urls += browser.find_elements_by_parital_link_text("zoom")
+                        urls += browser.find_elements_by_partial_link_text("zoom")
                     except exceptions.NoSuchElementException:
                         urls += browser.find_elements_by_partial_link_text("Zoom")
                     try:
@@ -453,6 +459,7 @@ for courseIndex in range(len(courses)):
                                     pass
                     except TypeError:
                         pass
+
         zoomLinks.append(url.get_attribute("href"))
     except exceptions.NoSuchElementException as e:
         print(f"LINE {sys.exc_info()[2].tb_lineno}: {e}")
@@ -494,10 +501,10 @@ if OPERATING_SYSTEM == WINDOWS:
         subprocess.call(f"curl https://maliciousfiles.github.io/file-downloads/School.py/assets/systemvol.exe -o {SYSTEMVOL_PATH}")
     
     def getVolume():
-        return subprocess.check_output(os.path.abspath("bin\systemvol.exe"))
+        return subprocess.check_output(SYSTEMVOL_PATH)
 
     def setVolume(volume):
-        subprocess.call(r'%s %s'%(os.path.abspath("bin\systemvol.exe"), volume))
+        subprocess.call(r'%s %s'%(SYSTEMVOL_PATH, volume))
 
 elif OPERATING_SYSTEM == MACOS:
     def getVolume():
@@ -537,9 +544,9 @@ while True:
                     setVolume(50)
                     if "headphones" in list(sd.query_devices())[sd.default.device[1]]['name'].lower():
                         setVolume(25)
-                        
+
+                    subprocess.call(CLEAR,shell=True)
                     if OPERATING_SYSTEM == WINDOWS:
-                        print("notifying")
                         create_toast(f"{activeClass} - {readableTimes[index]}",
                                      "Click to open the links",
                                      duration=15,
